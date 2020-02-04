@@ -19,7 +19,7 @@ services:
       
   check-service:
     container_name: check-service
-    image: searchmetrics/check-service
+    image: sanit4u/check-service
     restart: on-failure
     ports:
       - 8888:8888
@@ -35,7 +35,7 @@ services:
       
   exchange-service:
     container_name: exchange-service
-    image: searchmetrics/exchange-service
+    image: sanit4u/exchange-service
     restart: on-failure
     ports:
       - 8989:8989

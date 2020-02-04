@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.searchmetrics.test</groupId>
+	<groupId>de.sanit4u.test</groupId>
 	<artifactId>exchange-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>exchange-service</name>
@@ -24,7 +24,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<spring-cloud.version>Hoxton.BUILD-SNAPSHOT</spring-cloud.version>
-		<docker.image.prefix>searchmetrics</docker.image.prefix>
+		<docker.image.prefix>sanit4u</docker.image.prefix>
 	</properties>
 
 
