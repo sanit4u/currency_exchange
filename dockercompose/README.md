@@ -12,6 +12,9 @@
 -  Check-service runs in 8888 port and exchange service runs in 8989 port. </br>
 
 ## 3. Architecture
+
+   ![](Architecture.jpg)
+
 -  designed these services to be decoupled and modular in nature. </br>
 -  To isolate the concern of services, i have separated the services; i.e.; one for read and one for write. </br>
 -  check-service would constantly checks the 3rd party forex service and keep on inserting the currency rate into the db.</br>
