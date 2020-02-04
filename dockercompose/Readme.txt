@@ -1,5 +1,5 @@
 
-1. Program Structure
+## 1. Program Structure
 -  There are 3 folders
 	a. dockercompose
 	b. check-service
@@ -20,8 +20,8 @@
 		
 -  exchange-service only acts as read service, that gets the latest currency rate from the db.
         a. This exists separately to the read the data, so that it can individually grow.
-		b. for historical data, if the date range is exists in the system, then it can collects the historical data from the db itself.
-		   In this way, we can reduce the calls to the external api. if there are multiple records present per db in the table, then it selects the closing record (the latest of them all).
+	b. for historical data, if the date range is exists in the system, then it can collects the historical data from the db itself.
+	   In this way, we can reduce the calls to the external api. if there are multiple records present per db in the table, then it   selects the closing record (the latest of them all).
 		c. if it is not in the db, then it asks the check service to collect and give it from the 3rd party API.
 
 
