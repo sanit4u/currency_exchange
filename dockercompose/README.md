@@ -13,7 +13,7 @@
 
 ## 3. Architecture
 -  designed these services to be decoupled and modular in nature. </br>
--  To isolate the separation of concern, i have separated the the services. </br>
+-  To isolate the concern of services, i have separated the services; i.e.; one for read and one for write. </br>
 -  check-service would constantly checks the 3rd party forex service and keep on inserting the currency rate into the db.</br>
 		a. this service only deals with updating the db with currency exchange rate periodically and when needed for historical data. </br>
 		b. the check period is configurable. Right now, it is configured to 50 seconds. </br>
