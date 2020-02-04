@@ -1,0 +1,55 @@
+# docker-compose.yml
+version: '3'
+services:
+  postgres10:
+    image: postgres:10
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Merck13Dir
+    # uncomment to persist data, conf and logs
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./pgdata/data:/var/lib/postgresql/data
+      #- ./pgdata/conf:/etc/postgresql
+      #- ./pgdata/log:/var/log/postgresql        
+      
+  check-service:
+    container_name: check-service
+    image: searchmetrics/check-service
+    restart: on-failure
+    ports:
+      - 8888:8888
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres10:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Merck13Dir
+      CHECK_PERIOD_IN_MILLISECONDS: 50000
+    depends_on:
+      - postgres10
+    links:
+      - postgres10  
+      
+  exchange-service:
+    container_name: exchange-service
+    image: searchmetrics/exchange-service
+    restart: on-failure
+    ports:
+      - 8989:8989
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres10:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Merck13Dir
+      EXCHANGE_CHECK_URI: http://check-service:8888/check
+    depends_on:
+      - postgres10
+    links:
+      - postgres10
+
+#networks:
+#  default:
+#    external:
+#      name: exchange-docker_default          
