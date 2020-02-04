@@ -6,7 +6,7 @@
 	c. exchange-service </br>
 
 ## 2. How to run the Program
--  just bulid the check-service & exchange-service project with mvn clean package. </br>
+-  bulid the check-service & exchange-service project with mvn clean package. </br>
 -  it will build docker images for respective service. </br>
 -  Then, start all the services using the docker-compose file in dockercompose folder. </br>
 -  Check-service runs in 8888 port and exchange service runs in 8989 port. </br>
