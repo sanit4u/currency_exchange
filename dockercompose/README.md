@@ -1,5 +1,5 @@
 
-## 1. Program Structure
+1. Program Structure
 -  There are 3 folders
 	a. dockercompose
 	b. check-service
